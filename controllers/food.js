@@ -6,7 +6,7 @@ const logFoodTotal = async(req,res)=> {
     let foodTotal = req.body.result_food_total;
     let food_serving = JSON.stringify(req.body.food_serving)
     let user_id = res.user_id;
-    if(!(Number.isInteger(foodTotal) && Number.isInteger(user_id))){
+    if(!(typeof foodTotal === 'number' && Number.isInteger(user_id))){
         return res.status(400).json({
             message: "Bad input",
         });
